@@ -1,7 +1,10 @@
-import oauth
+import utils.oauth
 import requests
-import urllib3
+
 
 def get_data_from_api(region: str, path: str, params: dict):
-    token = oauth.get_access_token()
-    url = f"https://{region}.api.blizzard.com/{path}"
+    params["access_token"] = utils.oauth.get_access_token()
+    url = f"https://{region}.api.blizzard.com{path}"
+
+    response = requests.get(url, params)
+    return response.json()
