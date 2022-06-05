@@ -27,4 +27,4 @@ async def get_mount(mount_id: int):
         "locale": "en_US",
     }
 
-    return utils.blizzard.get_data_from_api("eu", f"/data/wow/mount/{id}", params)
+    return utils.blizzard.get_data_from_api("eu", f"/data/wow/mount/{mount_id}", params)
