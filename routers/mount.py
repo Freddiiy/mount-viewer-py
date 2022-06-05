@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 
-import dependencies
+import utils.oauth
+import utils.blizzard
 
 router = APIRouter(
     prefix="/mount",
@@ -27,4 +28,9 @@ fake_mount = {
 
 @router.get("/")
 async def get_mounts():
-    return dependencies.get_access_token()
+    params = {
+        "namespace": "static-eu",
+        "locale": "en_US",
+    }
+
+    return utils.blizzard.get_data_from_api("eu", "/data&wow/mount/index", params)
