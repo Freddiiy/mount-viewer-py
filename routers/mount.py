@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
 
-import utils.oauth
 import utils.blizzard
 
 router = APIRouter(

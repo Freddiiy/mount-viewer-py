@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 
-from routers import mount
+from routers import mount, character
 
 app = FastAPI()
 
 app.include_router(mount.router)
+app.include_router(character.router)
 
 
 @app.get("/")
